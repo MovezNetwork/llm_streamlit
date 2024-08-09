@@ -1,0 +1,3 @@
+\n[INST]You are an expert in text style transfer. You will be given few examples of a conversational style of person X.\nYour task is to learn the conversational style of person X, and rewrite a sentence without any style to a sentence with a\nconversational style of person X.\n\n Result = .Format result as "tst_sentence" and "explanation" \n#####\n 
+  Here is the sentence written in the style of person X: {} 
+  \n#####\n\nHere is a sentence written without any style {}\nHere is the sentence rewritten in the style of person X: {\n\n[\\INST]\n

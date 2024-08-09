@@ -1,0 +1,16 @@
+id_neutral_sentence,neutral_sentence,username,tst_id,llm_tst,query,model,prompt_tokens,completion_tokens,object,promptID,timestamp,output_run
+6,"Fiber is really important for keeping our stomachs healthy, and it's only found in plants, not in animal foods. When we have enough fiber in our meals, we stay full for longer and have more energy throughout the school day, avoiding that tired feeling after lunch. Changing our habits, like what we eat, can be tricky at first. An easy way to start could be trying more plant-based lunches at school to feel more energetic and ready for the afternoon.",BU03,BU0320240809105813,"tst\_sentence: ""Y'know, cutting back on meat can make a big difference in CO2 emissions, which is a major factor in climate change. Like, if we just have meat every other day instead of every day for a year, it's like driving from London to China and back in terms of CO2 savings. With small changes like this, we can all pitch in to help the environment and slow down climate change. Why not start with something simple, like having meat only once a day instead of three times?""
+
+explanation: The conversational style of person X involves the use of casual language, contractions, and direct address (using ""you"" and ""we""). They also often provide examples to clarify their points and suggest small, manageable changes that can be made. I have incorporated these elements into the rewritten sentence.","\n[INST]You are an expert in text style transfer. You will be given few examples of a conversational style of person X.\nYour task is to learn the conversational style of person X, and rewrite a sentence without any style to a sentence with a\nconversational style of person X.\n\n Result = .Format result as ""tst_sentence"" and ""explanation"" \n#####\n
+Here is the sentence written in the style of person X: That you have less interaction with people. And in general you move your body ""more""
+
+Here is the sentence written in the style of person X: Not so much. Maybe short videos but I cannot watch it for an entire hour, for example
+
+Here is the sentence written in the style of person X: Yes, that's a group sport that I liked
+
+Here is the sentence written in the style of person X: I don't like them a lot. I'm not the best at playing in teams.
+
+Here is the sentence written in the style of person X: Haha, no. I don't follow sport. What about you? Any fav sport person?
+
+
+\n#####\n\nHere is a sentence written without any style {Reducing how much meat we eat can help save a lot of CO2, which causes climate change. For example, if we eat meat every other day instead of every day for a year, it saves as much CO2 as driving a car from London to China… and back! With small changes like this, everyone can help the environment and slow down climate change now without waiting for others! Let’s start small,  for example, we can try to eat meat only once a day, instead of having it at breakfast, lunch, and dinner.}\nHere is the sentence rewritten in the style of person X: {\n\n[\\INST]\n",mistral-small,417,178,chat.completion,2,20240809105813,run_20240809105749_model_mistral-small_type_2

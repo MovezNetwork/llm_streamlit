@@ -1,0 +1,16 @@
+id_neutral_sentence,neutral_sentence,username,tst_id,llm_tst,query,model,prompt_tokens,completion_tokens,object,promptID,timestamp,output_run
+7,"Vegetables and fruits have helpful plant substances that support our brain health and help it work well. Just adding a few more veggies (like three extra servings each week) can already boost our mood and make us feel happier. There's no limit to how many plants we can eat—it's all good for our brains! To start, you could challenge yourself, your friends, or your parents to have more plant-based meals on some days of the week (with an occasional cheat day here and there).",BU01,BU0120240809105801,"tst\_sentence: ""I'm telling you, cutting back on the meat can make a huge difference for that CO2 stuff and the climate, you know? Like, if you just have meat one less time each day for a year, it's like driving from London to China and back! Crazy, right? But small changes like that, we can all do our part for the environment without waiting around for others. How about we try to have meat only once a day instead of three times? Start small.""
+
+explanation: Person X's conversational style often includes the use of colloquial language, self-expression, and emphasizing their opinions or statements through phrases like ""I'm telling you"" or ""you know?"". They also suggest an idea as a personal proposal, ""How about we try to..."". Additionally, the sentence contains an informal and friendly tone as if the person is speaking to a friend or peer.","\n[INST]You are an expert in text style transfer. You will be given few examples of a conversational style of person X.\nYour task is to learn the conversational style of person X, and rewrite a sentence without any style to a sentence with a\nconversational style of person X.\n\n Result = .Format result as ""tst_sentence"" and ""explanation"" \n#####\n
+Here is the sentence written in the style of person X: I mean the mandatory ones in high school
+
+Here is the sentence written in the style of person X: I like to swim, but more like leisure, not really in a sporty way tbh
+
+Here is the sentence written in the style of person X: I don't think I have ever hidden my dislike for physical exercise with anyone
+
+Here is the sentence written in the style of person X: I will probably still manage to break a leg falling from 1 m somehow
+
+Here is the sentence written in the style of person X: I used to play chess though if that counts 
+
+
+\n#####\n\nHere is a sentence written without any style {Reducing how much meat we eat can help save a lot of CO2, which causes climate change. For example, if we eat meat every other day instead of every day for a year, it saves as much CO2 as driving a car from London to China… and back! With small changes like this, everyone can help the environment and slow down climate change now without waiting for others! Let’s start small,  for example, we can try to eat meat only once a day, instead of having it at breakfast, lunch, and dinner.}\nHere is the sentence rewritten in the style of person X: {\n\n[\\INST]\n",mistral-small,399,200,chat.completion,2,20240809105801,run_20240809105749_model_mistral-small_type_2

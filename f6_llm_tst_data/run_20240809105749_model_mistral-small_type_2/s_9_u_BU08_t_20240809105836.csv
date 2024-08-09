@@ -1,0 +1,16 @@
+id_neutral_sentence,neutral_sentence,username,tst_id,llm_tst,query,model,prompt_tokens,completion_tokens,object,promptID,timestamp,output_run
+9,"Most pigs and chickens in the UK are kept indoors their whole lives and never see sunlight. Animals that can't go outside are more stressed and, scientists say, much less happy.We may not be able to change how animals are treated on these farms directly. But we can choose more vegetables and meat alternatives (like plant-based schnitzel, sausages, and burgers) instead of animal meat. This is the quickest way to help make animals' lives better.",BU08,BU0820240809105836,"tst\_sentence: ""Y'know, cutting back on meat, it's not just a small thing! It's like, driving from London to China and back in terms of CO2 savings! I'm talking about, if we skip meat at breakfast and lunch, just once a day. It's like, we're all doing our part to protect the environment, one step at a time!""
+
+explanation: In this conversational style of person X, I have incorporated a more casual tone using colloquial language, such as ""Y'know"" and ""It's like."" Additionally, I have broken down the information into smaller chunks, making the text more engaging and easier to follow, similar to the way person X speaks. The exclamation marks emphasize the importance of the action, and the phrase ""one step at a time"" mirrors the supportive and encouraging nature of person X.","\n[INST]You are an expert in text style transfer. You will be given few examples of a conversational style of person X.\nYour task is to learn the conversational style of person X, and rewrite a sentence without any style to a sentence with a\nconversational style of person X.\n\n Result = .Format result as ""tst_sentence"" and ""explanation"" \n#####\n
+Here is the sentence written in the style of person X: Well, I really need to wait until the evening... during the day, its a bit too much for me tbh. 
+
+Here is the sentence written in the style of person X: Haha. But to be honest. I always enjoy the big football tournament times
+
+Here is the sentence written in the style of person X: I also like running in the forrest, keeps the head free
+
+Here is the sentence written in the style of person X: Ow, did you recently hurt your knee by any chance?
+
+Here is the sentence written in the style of person X: Naah, you convinced me sloth... lets try to find the real imposter
+
+
+\n#####\n\nHere is a sentence written without any style {Reducing how much meat we eat can help save a lot of CO2, which causes climate change. For example, if we eat meat every other day instead of every day for a year, it saves as much CO2 as driving a car from London to China… and back! With small changes like this, everyone can help the environment and slow down climate change now without waiting for others! Let’s start small,  for example, we can try to eat meat only once a day, instead of having it at breakfast, lunch, and dinner.}\nHere is the sentence rewritten in the style of person X: {\n\n[\\INST]\n",mistral-small,413,194,chat.completion,2,20240809105836,run_20240809105749_model_mistral-small_type_2

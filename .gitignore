@@ -1,0 +1,20 @@
+f7_processed_llm_tst_data/
+f9_processed_llm_evaluation_data/
+f3_context_data/
+output_llm_data_old/
+output_parallel_data_old/
+mlartifacts/
+mlruns/
+f1_processed_user_chat_data/
+f6_llm_tst_data/
+wandb/
+f0_input_user_chat_data/
+f4_shots_data/
+f2_prompt_ready_chat_data
+config.ini
+.ipynb_checkpoints/
+.DS_Store
+__pycache__/
+ output_evaluationPrompts_NoContext_complete_output.csv
+/output_evaluation/
+f8_llm_evaluation_data

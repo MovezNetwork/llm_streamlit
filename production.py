@@ -10,6 +10,7 @@ import os
 from stqdm import stqdm
 from tqdm import tqdm
 from openai import OpenAI
+import streamlit as st
 
 # Data preparation methods
 def read_input_data():
@@ -65,8 +66,8 @@ def llm_tst(df_user_data, neutral_sentences,model_name, system_prompt, kshot_pro
     config = configparser.ConfigParser()
     # Read the configuration file & paths
     config.read('config.ini')
-    api_key_mistral = config.get('credentials', 'api_key_mistral')
-    api_key_gpt = config.get('credentials', 'api_key_openai')
+    api_key_mistral = st.secrets["api_key_mistral"]
+    api_key_gpt = st.secrets["api_key_openai"]
 
 
     # create a new folder programmically, with name being a current timestamp in the format YYYYMMDDHHMMSS
@@ -233,11 +234,11 @@ def llm_evl(df,user_sentences,model_name):
     config.read('config.ini')
 
     if 'mistral' in model_name:
-        api_key_mistral = config.get('credentials', 'api_key_mistral')
+        api_key_mistral = st.secrets('api_key_mistral') 
         # mistral_client = MistralClient(api_key = api_key_mistral)
         mistral_client = Mistral(api_key = api_key_mistral)
     elif 'gpt' in model_name:
-        api_key_gpt = config.get('credentials', 'api_key_openai')
+        api_key_gpt = st.secrets('api_key_openai') 
         gpt_client = OpenAI(api_key = api_key_gpt)
 
     surfdrive_url_evaluation_prompts = config.get('credentials', 'surfdrive_url_evaluation_prompts')

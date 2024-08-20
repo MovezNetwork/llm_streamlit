@@ -632,7 +632,7 @@ def main():
     # New Runs tab
     with tab3:
         st.subheader("New LLM Run")
-        models = ['mistral-small', 'mistral-medium','gpt-3.5-turbo-0125','gpt-4-turbo','gpt-4o-mini','gpt-4o']
+        models = ['open-mistral-nemo', 'mistral-large-latest','gpt-4o-mini','gpt-4o']
         prompts = ['k-shot non-parallel','k-shot parallel']
 
 

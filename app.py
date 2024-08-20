@@ -718,6 +718,7 @@ def main():
                 st.write(df_llm_tst_processed)
 
                 st.write('Evaluate LLM TST')
+
                 df_eval = p.llm_evl(df_llm_tst_processed,user_sentences,model_selection)
                 st.write(df_eval)
 
@@ -734,17 +735,6 @@ def main():
         
         else:
             st.write('')
-
-
-
-
-
-
-
-
-
-
-
 
 
 

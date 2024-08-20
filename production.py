@@ -11,6 +11,7 @@ from stqdm import stqdm
 from tqdm import tqdm
 from openai import OpenAI
 import streamlit as st
+import json
 
 # Data preparation methods
 def read_input_data():
@@ -150,8 +151,11 @@ def llm_tst(df_user_data, neutral_sentences,model_name, system_prompt, kshot_pro
                         {
                             "role": "user",
                             "content": query,
-                        },
+
+                        },   
                     ],
+                    response_format={ "type": "json_object" }
+
                 )
 
 
@@ -164,6 +168,7 @@ def llm_tst(df_user_data, neutral_sentences,model_name, system_prompt, kshot_pro
                     model = model_name,
                     messages = messages,
                     temperature = 0.2,
+                    response_format={ "type": "json_object" }
                 )
 
 
@@ -189,25 +194,32 @@ def llm_tst(df_user_data, neutral_sentences,model_name, system_prompt, kshot_pro
             df_output.to_csv(output_llm_folder_path + "s_" + str(sentence['sentenceid']) + "_u_" + username + "_t_" + timestamp + '.csv', index=False)
             df_output_all = pd.concat([df_output_all, df_output], ignore_index=True)
     
-    # #try to execute this method, if it fails return df_mistral_output_all
-    # try:
-    #     df_postprocess = postprocess_llm_tst(df_output_all, output_run)
-    # except:
-    #     print('Postprocessing failed, returning the raw data. Please run the postprocessing method manually.')
-    #     return df_output_all
-
 
     return df_output_all,output_run
+
+# Function to extract value from JSON string
+def extract_value(json_string, key):
+    try:
+        json_data = json.loads(json_string)  # Parse the JSON string
+        return json_data.get(key, None)  # Get the value associated with the key
+    except json.JSONDecodeError:
+        return None  # Return None if the JSON is invalid
+    
 
 
 def postprocess_llm_tst(df,output_run):
     print('Postprocessing LLM TST data')
     # apply try except block to catch exceptions
     try:
-        df['tst_sentence'] = df['llm_tst'].apply(lambda x: extract_tst(x)[0])
-        df['explanation'] = df['llm_tst'].apply(lambda x: extract_tst(x)[1])
+        #  postprocessing based on old format
+        # df['tst_sentence'] = df['llm_tst'].apply(lambda x: extract_tst(x)[0])
+        # df['explanation'] = df['llm_tst'].apply(lambda x: extract_tst(x)[1])
 
-        df = df[['username','id_neutral_sentence','neutral_sentence','tst_id','tst_sentence','explanation','llm_tst','query','model','prompt_tokens','completion_tokens','object','promptID','timestamp','output_run']]
+        # new postprocessing
+        df['rewritten_sentence'] = df['llm_tst'].apply(lambda x: extract_value(x, 'rewritten_sentence'))
+        df['explanation'] = df['llm_tst'].apply(lambda x: extract_value(x, 'explanation'))
+
+        df = df[['username','id_neutral_sentence','neutral_sentence','rewritten_sentence','explanation','tst_id','llm_tst','query','model','prompt_tokens','completion_tokens','object','promptID','timestamp','output_run']]
         
         output_llm_folder_path = 'f6_llm_tst_data/' + output_run + '/'
 
@@ -251,7 +263,7 @@ def llm_evl(df,user_sentences,model_name):
     # for _, row_sentences in df.iterrows():
 
         # take the sentence from the corpus
-        sentence = row_sentences['tst_sentence']
+        sentence = row_sentences['rewritten_sentence']
 
         # evaluate the sentence on all evaluation metrics
         for _, row_eval in df_eval_prompts.iterrows():
@@ -286,7 +298,6 @@ def llm_evl(df,user_sentences,model_name):
                         ],
                 )
             elif 'gpt' in model_name:
-                print('evaluation with gpt')
                 # gpt query
                 messages = [{"role": "system", "content": "You are an linguistic expert that should evaluate text on different metrics."},
                              {"role": "user", "content": eval_prompt}]
@@ -320,7 +331,7 @@ def llm_evl(df,user_sentences,model_name):
 
 
     df_eval_output = pd.DataFrame(eval_output)
-
+   
     try:
         output_run = df_eval_output['output_run'].iloc[0]
     except:
@@ -339,13 +350,12 @@ def llm_evl(df,user_sentences,model_name):
     #try to execute this method, if it fails return df_mistral_output_all
     try:
         df_postprocess = postprocess_llm_evl(df_eval_output,output_run)
+        return df_postprocess
     except:
         print('Evaluation postprocessing failed, returning the raw data. Please run the evaluation postprocessing method manually.')
         return df_eval_output
     
 
-
-    return df_postprocess,df_eval_output
 
 
 def postprocess_llm_evl(df,output_run):

@@ -234,10 +234,10 @@ def postprocess_llm_tst(df,output_run):
 
 def extract_tst(text):
 
-    tst_sentence = text.split('explanation:')[0].split(': ')[1].replace('"', '').replace('\n', '')
+    rewritten_sentence = text.split('explanation:')[0].split(': ')[1].replace('"', '').replace('\n', '')
     explanation = text.split('explanation:')[1]
 
-    return tst_sentence, explanation
+    return rewritten_sentence, explanation
 
 
 # Evaluation methods
@@ -314,7 +314,7 @@ def llm_evl(df,user_sentences,model_name):
                 'username': row_sentences['username'],
                 'id_neutral_sentence': row_sentences['id_neutral_sentence'],
                 'tst_id': row_sentences['tst_id'],
-                'tst_sentence': sentence,
+                'rewritten_sentence': sentence,
                 'user_sentence': user_s,
                 'eval_id': row_sentences['username'] + eval_timestamp,
                 'llm_eval': chat_response.choices[0].message.content,
@@ -370,7 +370,7 @@ def postprocess_llm_evl(df,output_run):
         # first, store the tst_id in the new row    
         eval_output = {
             'tst_id': tst_id,
-            'tst_sentence': group['tst_sentence'].iloc[0],
+            'rewritten_sentence': group['rewritten_sentence'].iloc[0],
             'username': group['username'].iloc[0],
             'id_neutral_sentence': group['id_neutral_sentence'].iloc[0],
             'user_sentence': group['user_sentence'].iloc[0],

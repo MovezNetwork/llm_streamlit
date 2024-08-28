@@ -74,7 +74,7 @@ def main():
                 st.subheader('TST ID: ' + str(tst_id))
                 
                 st.write(row['neutral_sentence'])
-                tst_sentence = row['tst_sentence']
+                tst_sentence = row['rewritten_sentence']
                 text_length_tst_sentence = len(tst_sentence)
                 height_tst_sentence = max(100, (text_length_tst_sentence // 20 + 1) * 12)         
                 tst_sentence_html_code = f"""
@@ -155,7 +155,7 @@ def main():
                 st.subheader('TST ID: ' + str(tst_id))
                 
                 
-                tst_sentence = row['tst_sentence']
+                tst_sentence = row['rewritten_sentence']
                 text_length_tst_sentence = len(tst_sentence)
                 height_tst_sentence = max(100, (text_length_tst_sentence // 20 + 1) * 12)         
                 tst_sentence_html_code = f"""
@@ -406,7 +406,7 @@ def main():
                 st.subheader('TST ID: ' + str(tst_id))
                 
                 
-                tst_sentence = row['tst_sentence']
+                tst_sentence = row['rewritten_sentence']
                 text_length_tst_sentence = len(tst_sentence)
                 height_tst_sentence = max(100, (text_length_tst_sentence // 20 + 1) * 12)         
                 tst_sentence_html_code = f"""
@@ -559,50 +559,50 @@ def main():
 
                     
                 if eval_scores == 'Formality':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_formality','eval_explanation_formality']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_formality','eval_explanation_formality']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'formality')
                     st.dataframe(df_eval_sub)               
 
                 elif eval_scores == 'Descriptiveness':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_descriptiveness','eval_explanation_descriptiveness']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_descriptiveness','eval_explanation_descriptiveness']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'descriptiveness')
                     st.dataframe(df_eval_sub)               
 
                 elif eval_scores == 'Emotionality':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_emotionality','eval_explanation_emotionality']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_emotionality','eval_explanation_emotionality']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'emotionality')
                     st.dataframe(df_eval_sub)               
     
                 elif eval_scores == 'Sentiment':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_sentiment','eval_explanation_sentiment']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_sentiment','eval_explanation_sentiment']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'sentiment')
                     st.dataframe(df_eval_sub)               
 
                 elif eval_scores == 'Fluency':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_fluency','eval_explanation_fluency_comprehensibility']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_fluency','eval_explanation_fluency_comprehensibility']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'fluency')
                     st.dataframe(df_eval_sub)               
 
                 elif eval_scores == 'Comprehensibility':
-                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','tst_sentence','eval_score_comprehensibility','eval_explanation_fluency_comprehensibility']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','id_neutral_sentence','rewritten_sentence','eval_score_comprehensibility','eval_explanation_fluency_comprehensibility']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'comprehensibility')
                     st.dataframe(df_eval_sub)     
 
                 
                 elif eval_scores == 'Topic Similarity':
-                    df_eval_sub = df_eval[[ 'tst_id','username','user_sentence','id_neutral_sentence','tst_sentence','eval_score_topic_similarity','eval_explanation_topic_similarity']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','user_sentence','id_neutral_sentence','rewritten_sentence','eval_score_topic_similarity','eval_explanation_topic_similarity']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'topic_similarity')
                     st.dataframe(df_eval_sub) 
 
                 elif eval_scores == 'Meaning Similarity':
-                    df_eval_sub = df_eval[[ 'tst_id','username','user_sentence','id_neutral_sentence','tst_sentence','eval_score_meaning_similarity','eval_explanation_meaning_similarity']]
+                    df_eval_sub = df_eval[[ 'tst_id','username','user_sentence','id_neutral_sentence','rewritten_sentence','eval_score_meaning_similarity','eval_explanation_meaning_similarity']]
                     df_eval_sub = subdataframe_scores(df_eval_sub,username_eval,sentence_id_eval)
                     dataframe_with_score(df_eval_sub,'meaning_similarity')
                     st.dataframe(df_eval_sub)               

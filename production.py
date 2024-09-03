@@ -14,7 +14,7 @@ import streamlit as st
 import json
 
 # Data preparation methods
-def read_input_data():
+def read_input_data(data_file):
     # EXPERIMENT 1
     # output_shots_data = 'f4_shots_data/'
     # csv_files = glob.glob(output_shots_data + '*.csv')
@@ -47,7 +47,7 @@ def read_input_data():
     config = configparser.ConfigParser()
     # Read the configuration file & paths
     config.read('config.ini')
-    data_file = 'f1_processed_user_chat_data/five_shots.csv'
+    #data_file = 'f1_processed_user_chat_data/five_shots.csv'
     df_all_shots = pd.read_csv(data_file)
     df_all_shots = df_all_shots.sort_values(by='username')
 

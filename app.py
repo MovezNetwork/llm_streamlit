@@ -691,13 +691,18 @@ def main():
 
             users = st.multiselect(
                 "Which users to include?",
-                ["BU01", "BU02", "BU03", "BU04","BU05", "BU06", "BU07", "BU08"],
-                ["BU01", "BU02", "BU03", "BU04","BU05", "BU06", "BU07", "BU08"],
+                ["BU01", "BU02", "BU03", "BU04", "BU05", "BU06", "BU07", "BU08"],
+                ["BU01", "BU02", "BU03", "BU04", "BU05", "BU06", "BU07", "BU08"],
             )
             sentences = st.multiselect(
                 "Which sentences to include?",
-                [0,1,2,3,4,5,6,7,8,9],
-                [0,1,2,3,4,5,6,7,8,9],
+                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+            )
+
+            shots = st.selectbox(
+                "How many shots (example sentences)?",
+                ("five_shots", "ten_shots", "twenty_shots", "all"),
             )
 
             if st.button('Start LLM TST'):
@@ -706,7 +711,7 @@ def main():
             
                 st.write('Running LLM Text Style Transfer')
 
-                df_user_data,neutral_sentences,user_sentences = p.read_input_data()
+                df_user_data,neutral_sentences,user_sentences = p.read_input_data("f1_processed_user_chat_data/" + shots + ".csv")
                 df_user_data = df_user_data[df_user_data['username'].isin(users)]
                 neutral_sentences = neutral_sentences[neutral_sentences['sentenceid'].isin(sentences)]
 

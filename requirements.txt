@@ -5,5 +5,5 @@ plotly
 python-dotenv
 stqdm
 streamlit
-streamlit_extras
+streamlit-extras
 tqdm

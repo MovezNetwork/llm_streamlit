@@ -33,7 +33,13 @@ def get_twenty_shots(df,wave_id):
     df_twenty_shots.to_csv('data/chat/output/w' +str(wave_id)+ '_twenty_shot_data.csv')
     return df_twenty_shots
 
-
+def get_all_shots(df,wave_id):
+    # Get random twenty messages from each session
+    df_all_shots = df[['sessionId','messageID','timestamp','content','rewritten']]
+    # rename content -> original, rewritten -> neutral
+    df_all_shots = df_all_shots.rename(columns={'content':'original','rewritten':'neutral','sessionId':'username'})
+    df_all_shots.to_csv('data/chat/output/w' +str(wave_id)+ '_all_shot_data.csv')
+    return df_all_shots
 
 
 
